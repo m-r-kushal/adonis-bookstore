@@ -11,7 +11,7 @@ import { middleware } from '#start/kernel'
 import { controllers } from '#generated/controllers'
 import router from '@adonisjs/core/services/router'
 
-router.get('/all-books', [controllers.Books, 'index']);
+router.get('/all-books', [controllers.Books, 'index']).as('books.index')
 
 
 

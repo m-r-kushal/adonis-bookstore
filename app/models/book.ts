@@ -1,4 +1,3 @@
 import { BookSchema } from '#database/schema'
 
-export default class Book extends BookSchema {
-}
+export default class Book extends BookSchema {}

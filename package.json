@@ -65,8 +65,10 @@
     "@adonisjs/shield": "^9.0.0",
     "@adonisjs/static": "^2.0.1",
     "@adonisjs/vite": "^5.1.0",
+    "@popperjs/core": "^2.11.8",
     "@vinejs/vine": "^4.3.1",
     "better-sqlite3": "^12.9.0",
+    "bootstrap": "^4.6.2",
     "edge.js": "^6.5.0",
     "luxon": "^3.7.2",
     "reflect-metadata": "^0.2.2"

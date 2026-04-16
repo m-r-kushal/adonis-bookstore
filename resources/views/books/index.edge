@@ -1,0 +1,57 @@
+@layout( { title: 'Books'})
+
+<div>
+  <h1> All Books </h1>
+    <a href="" class="btn btn-primary float-right my-1">Add New Book</a>
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Price</th>
+        <th>Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+      @each(book in books)
+      <tr>
+        <td>{{book.id}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.isbn}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.stock}}</td>
+      </tr>
+      @end
+    </tbody>
+  </table>
+
+  <ul class="pagination">
+    <li class="page-item {{ books.currentPage===books.firstPage  ? 'disabled' : '' }}">
+          <a class="page-link" href="{{ route('books.index') }}?page={{ books.firstPage }}">&lt;&lt;</a>
+    </li>
+
+    <li class="page-item {{ books.currentPage === 1 ? 'disabled' : '' }}">
+      <a class="page-link" href="{{ route('books.index') }}?page={{ page*1-1 }}">Previous</a>
+    </li>
+
+
+
+
+
+    <li class="page-item {{ !books.hasMorePages ? 'disabled' : '' }}">
+      <a class="page-link" href="{{ route('books.index') }}?page={{ page*1+1 }}">Next</a>
+    </li>
+
+    <li class="page-item {{ books.currentPage===books.lastPage  ? 'disabled' : '' }}">
+              <a class="page-link" href="{{ route('books.index') }}?page={{ books.lastPage }}"> &gt;&gt; </a>
+        </li>
+
+  </ul>
+
+
+</div>
+@end
