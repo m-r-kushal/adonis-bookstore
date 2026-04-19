@@ -7,9 +7,12 @@ export default class BooksController {
    * Display a list of resource
    */
   async index({ view, request }: HttpContext) {
+
     const page = request.input('page', 1)
     const perPage = 15
+
     const books = await Book.query().paginate(page, perPage)
+
     return view.render('books/index', { books: books, page: page })
   }
 
@@ -44,8 +47,9 @@ export default class BooksController {
 
 
   async update({ params, request, response, session }: HttpContext) {
-    const book = await Book.findOrFail(params.id)
     const data = await request.validateUsing(bookValidator)
+
+    const book = await Book.findOrFail(params.id)
 
     book.merge({ ...data })
     await book.save()
