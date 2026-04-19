@@ -16,6 +16,7 @@ router.get('/books/create', [controllers.Books, 'create']).as('books.create')
 router.post('/books', [controllers.Books, 'store']).as('books.store')
 router.get('/books/:id/edit', [controllers.Books, 'edit']).as('books.edit')
 router.put('/books/:id', [controllers.Books, 'update']).as('books.update')
+router.delete('/books/:id', [controllers.Books, 'destroy']).as('books.destroy')
 router.get('/books/:id', [controllers.Books, 'show']).as('books.show')
 
 

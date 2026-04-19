@@ -57,5 +57,11 @@ export default class BooksController {
   /**
    * Delete record
    */
-  async destroy({ }: HttpContext) { }
+  async destroy({ params, response, session }: HttpContext) {
+    const book = await Book.findOrFail(params.id)
+    await book.delete()
+
+    session.flash('success', 'Book deleted successfully.')
+    return response.redirect().toRoute('books.index')
+  }
 }

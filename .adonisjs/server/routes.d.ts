@@ -9,6 +9,7 @@ export type ScannedRoutes = {
     'books.store': { paramsTuple?: []; params?: {} }
     'books.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'books.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'books.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'books.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'home': { paramsTuple?: []; params?: {} }
     'new_account.create': { paramsTuple?: []; params?: {} }
@@ -43,6 +44,9 @@ export type ScannedRoutes = {
   }
   PUT: {
     'books.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+  }
+  DELETE: {
+    'books.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
 }
 declare module '@adonisjs/core/types/http' {

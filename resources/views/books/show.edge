@@ -9,6 +9,9 @@
 		<div>
 			<a href="{{ route('books.index') }}" class="btn btn-outline-secondary">Back</a>
 			<a href="{{ route('books.edit', { id: book.id }) }}" class="btn btn-primary">Edit</a>
+			@form({ route: 'books.destroy', routeParams: { id: book.id }, method: 'DELETE', class: 'd-inline' })
+				<button type="submit" class="btn btn-danger" onclick="return confirm('Delete this book?')">Delete</button>
+			@end
 		</div>
 	</div>
 
