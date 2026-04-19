@@ -12,6 +12,11 @@ import { controllers } from '#generated/controllers'
 import router from '@adonisjs/core/services/router'
 
 router.get('/all-books', [controllers.Books, 'index']).as('books.index')
+router.get('/books/create', [controllers.Books, 'create']).as('books.create')
+router.post('/books', [controllers.Books, 'store']).as('books.store')
+router.get('/books/:id/edit', [controllers.Books, 'edit']).as('books.edit')
+router.put('/books/:id', [controllers.Books, 'update']).as('books.update')
+router.get('/books/:id', [controllers.Books, 'show']).as('books.show')
 
 
 

@@ -1,0 +1,58 @@
+@layout({ title: 'Edit Book' })
+
+<div class="my-4">
+	<div class="d-flex justify-content-between align-items-center mb-4">
+		<div>
+			<h1>Edit Book</h1>
+			<p class="text-muted mb-0">Update the details for {{ book.title }}.</p>
+		</div>
+		<a href="{{ route('books.show', { id: book.id }) }}" class="btn btn-secondary">Cancel</a>
+	</div>
+
+	@form({ route: 'books.update', routeParams: { id: book.id }, method: 'PUT' })
+		<div class="form-group">
+			@field.root({ name: 'title' })
+				@!field.label({ text: 'Title' })
+				@!input.control({ value: book.title, class: 'form-control' })
+				@!field.error({ class: 'text-danger' })
+			@end
+		</div>
+
+		<div class="form-group">
+			@field.root({ name: 'author' })
+				@!field.label({ text: 'Author' })
+				@!input.control({ value: book.author, class: 'form-control' })
+				@!field.error({ class: 'text-danger' })
+			@end
+		</div>
+
+		<div class="form-group">
+			@field.root({ name: 'isbn' })
+				@!field.label({ text: 'ISBN' })
+				@!input.control({ value: book.isbn, class: 'form-control' })
+				@!field.error({ class: 'text-danger' })
+			@end
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				@field.root({ name: 'price' })
+					@!field.label({ text: 'Price' })
+					@!input.control({ type: 'number', step: '0.01', min: '0', value: book.price, class: 'form-control' })
+					@!field.error({ class: 'text-danger' })
+				@end
+			</div>
+
+			<div class="form-group col-md-6">
+				@field.root({ name: 'stock' })
+					@!field.label({ text: 'Stock' })
+					@!input.control({ type: 'number', min: '0', step: '1', value: book.stock, class: 'form-control' })
+					@!field.error({ class: 'text-danger' })
+				@end
+			</div>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Save Changes</button>
+	@end
+</div>
+@end

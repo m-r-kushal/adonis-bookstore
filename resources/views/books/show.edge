@@ -1,0 +1,33 @@
+@layout({ title: book.title })
+
+<div class="my-4">
+	<div class="d-flex justify-content-between align-items-start mb-4">
+		<div>
+			<h1>{{ book.title }}</h1>
+			<p class="text-muted mb-0">by {{ book.author }}</p>
+		</div>
+		<div>
+			<a href="{{ route('books.index') }}" class="btn btn-outline-secondary">Back</a>
+			<a href="{{ route('books.edit', { id: book.id }) }}" class="btn btn-primary">Edit</a>
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="card-body">
+			<dl class="row mb-0">
+				<dt class="col-sm-3">ID</dt>
+				<dd class="col-sm-9">{{ book.id }}</dd>
+
+				<dt class="col-sm-3">ISBN</dt>
+				<dd class="col-sm-9">{{ book.isbn }}</dd>
+
+				<dt class="col-sm-3">Price</dt>
+				<dd class="col-sm-9">{{ book.price }}</dd>
+
+				<dt class="col-sm-3">Stock</dt>
+				<dd class="col-sm-9">{{ book.stock }}</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+@end

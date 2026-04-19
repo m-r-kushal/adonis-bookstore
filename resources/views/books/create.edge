@@ -1,7 +1,57 @@
-@layout()
+@layout({ title: 'Add Book' })
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi corporis, molestiae nihil saepe ut voluptatum? Aliquam beatae debitis dicta, earum enim id in molestiae, quam quasi quia recusandae veniam vitae.</p>
+<div class="my-4">
+	<div class="d-flex justify-content-between align-items-center mb-4">
+		<div>
+			<h1>Add Book</h1>
+		</div>
+		<a href="{{ route('books.index') }}" class="btn btn-outline-secondary">Back to list</a>
+	</div>
 
+	@form({ route: 'books.store', method: 'POST' })
+		<div class="form-group">
+			@field.root({ name: 'title' })
+				@!field.label({ text: 'Title' })
+				@!input.control({ class: 'form-control' })
+				@!field.error({ class: 'text-danger' })
+			@end
+		</div>
 
+		<div class="form-group">
+			@field.root({ name: 'author' })
+				@!field.label({ text: 'Author' })
+				@!input.control({ class: 'form-control' })
+				@!field.error({ class: 'text-danger' })
+			@end
+		</div>
 
+		<div class="form-group">
+			@field.root({ name: 'isbn' })
+				@!field.label({ text: 'ISBN' })
+				@!input.control({ class: 'form-control' })
+				@!field.error({ class: 'text-danger' })
+			@end
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				@field.root({ name: 'price' })
+					@!field.label({ text: 'Price' })
+					@!input.control({ type: 'number', step: '0.01', min: '0', class: 'form-control' })
+					@!field.error({ class: 'text-danger' })
+				@end
+			</div>
+
+			<div class="form-group col-md-6">
+				@field.root({ name: 'stock' })
+					@!field.label({ text: 'Stock' })
+					@!input.control({ type: 'number', min: '0', step: '1', class: 'form-control' })
+					@!field.error({ class: 'text-danger' })
+				@end
+			</div>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Create Book</button>
+	@end
+</div>
 @end
