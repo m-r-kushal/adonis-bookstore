@@ -1,5 +1,5 @@
 @layout()
-  <div class="form-container">
+  <div class="container">
     <div>
       <h1> Login </h1>
       <p>
@@ -7,28 +7,31 @@
       </p>
     </div>
 
-    <div>
-      @form({ route: 'session.store', method: 'POST' })
-        <div>
-          @field.root({ name: 'email' })
-            @!field.label({ text: 'Email' })
-            @!input.control({ type: 'email' })
-            @!field.error()
-          @end
-        </div>
+    <div class="col-md-6 card align-self-middle">
+      <div class="card-body">
+        @form({ route: 'session.store', method: 'POST' })
+          <div class="form-group">
+            @field.root({ name: 'email' })
+              @!field.label({ text: 'Email' })
+              @!input.control({ type: 'email',class:'form-control' })
+              @!field.error()
+            @end
+          </div>
 
-        <div>
-          @field.root({ name: 'password' })
-            @!field.label({ text: 'Password' })
-            @!input.control({ type: 'password' })
-            @!field.error()
-          @end
-        </div>
+          <div class="form-group">
+            @field.root({ name: 'password' })
+              @!field.label({ text: 'Password' })
+              @!input.control({ type: 'password',class:'form-control' })
+              @!field.error()
+            @end
+          </div>
 
-        <div>
-          @!button({ text: 'Login', type: 'submit' })
-        </div>
-      @end
+          <div class="form-group">
+            @!button({ text: 'Login', type: 'submit',class:'btn btn-primary' })
+            <a href="/signup" class="btn btn-link"> Don't have an account? Sign up </a>
+          </div>
+        @end
+      </div>
     </div>
   </div>
 @end

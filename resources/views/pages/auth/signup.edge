@@ -7,44 +7,46 @@
       </p>
     </div>
 
-    <div>
+    <div class="card">
+      <div class="card-body">
       @form({ route: 'new_account.store', method: 'POST' })
-        <div>
+        <div class="form-group"
           @field.root({ name: 'fullName' })
             @!field.label({ text: 'Full name' })
-            @!input.control()
-            @!field.error()
+            @!input.control({ class: 'form-control' })
+             @!field.error({ class: 'text-danger' })
           @end
         </div>
 
-        <div>
+        <div class="form-group">
           @field.root({ name: 'email' })
             @!field.label({ text: 'Email' })
-            @!input.control({ type: 'email', autocomplete: 'email' })
-            @!field.error()
+            @!input.control({ type: 'email', autocomplete: 'email',class:'form-control' })
+            @!field.error({ class: 'text-danger' })
           @end
         </div>
 
-        <div>
+        <div class="form-group">
           @field.root({ name: 'password' })
             @!field.label({ text: 'Password' })
-            @!input.control({ type: 'password', autocomplete: 'new-password' })
-            @!field.error()
+            @!input.control({ type: 'password', autocomplete: 'new-password',class:'form-control' })
+             @!field.error({ class: 'text-danger' })
           @end
         </div>
 
-        <div>
+        <div class="form-group">
           @field.root({ name: 'passwordConfirmation' })
             @!field.label({ text: 'Confirm password' })
-            @!input.control({ type: 'password', autocomplete: 'new-password' })
-            @!field.error()
+            @!input.control({ type: 'password', autocomplete: 'new-password',class:'form-control' })
+             @!field.error({ class: 'text-danger' })
           @end
         </div>
 
         <div>
-          @!button({ text: 'Sign up', type: 'submit' })
+          @!button({ text: 'Sign up', type: 'submit', class: 'btn btn-primary' })
         </div>
       @end
+      </div>
     </div>
   </div>
 @end
