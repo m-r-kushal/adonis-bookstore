@@ -28,6 +28,25 @@ export class BookSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class CustomerSchema extends BaseModel {
+  static $columns = ['address', 'createdAt', 'email', 'fullName', 'id', 'phone', 'updatedAt'] as const
+  $columns = CustomerSchema.$columns
+  @column()
+  declare address: string | null
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare email: string
+  @column()
+  declare fullName: string
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare phone: string | null
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['createdAt', 'email', 'fullName', 'id', 'password', 'updatedAt'] as const
   $columns = UserSchema.$columns
