@@ -13,6 +13,8 @@
         <th>Email</th>
         <th>Phone</th>
         <th>Address</th>
+        <th>Total Sales</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -23,6 +25,14 @@
         <td>{{ customer.email }}</td>
         <td>{{ customer.phone || '-' }}</td>
         <td>{{ customer.address || '-' }}</td>
+        <td>{{ customer.sales.length }}</td>
+        <td>
+           @if(customer.sales.length)
+            <a href="{{ route('customers.sales', { id: customer.id }) }}" class="btn btn-sm btn-primary" >View Sales</a>
+          @else
+            <span class="text-muted">No Sales</span>
+          @endif
+        </td>
       </tr>
       @end
     </tbody>

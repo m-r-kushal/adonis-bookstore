@@ -5,13 +5,14 @@ type ParamValue = string | number | bigint | boolean
 export type ScannedRoutes = {
   ALL: {
     'books.index': { paramsTuple?: []; params?: {} }
-    'customers.index': { paramsTuple?: []; params?: {} }
     'books.create': { paramsTuple?: []; params?: {} }
     'books.store': { paramsTuple?: []; params?: {} }
     'books.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'books.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'books.destroy': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'books.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'customers.index': { paramsTuple?: []; params?: {} }
+    'customers.sales': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'home': { paramsTuple?: []; params?: {} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'new_account.store': { paramsTuple?: []; params?: {} }
@@ -21,20 +22,22 @@ export type ScannedRoutes = {
   }
   GET: {
     'books.index': { paramsTuple?: []; params?: {} }
-    'customers.index': { paramsTuple?: []; params?: {} }
     'books.create': { paramsTuple?: []; params?: {} }
     'books.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'books.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'customers.index': { paramsTuple?: []; params?: {} }
+    'customers.sales': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'home': { paramsTuple?: []; params?: {} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }
   }
   HEAD: {
     'books.index': { paramsTuple?: []; params?: {} }
-    'customers.index': { paramsTuple?: []; params?: {} }
     'books.create': { paramsTuple?: []; params?: {} }
     'books.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'books.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'customers.index': { paramsTuple?: []; params?: {} }
+    'customers.sales': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'home': { paramsTuple?: []; params?: {} }
     'new_account.create': { paramsTuple?: []; params?: {} }
     'session.create': { paramsTuple?: []; params?: {} }

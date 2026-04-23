@@ -12,8 +12,8 @@ export default class extends BaseSchema {
       table.decimal('price', 10, 2).notNullable()
       table.integer('stock').notNullable().defaultTo(0)
 
-      table.timestamp('created_at')
-      table.timestamp('updated_at')
+      table.timestamps(true,true)
+
     })
   }
 

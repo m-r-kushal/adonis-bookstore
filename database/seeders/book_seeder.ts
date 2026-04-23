@@ -7,6 +7,6 @@ export default class extends BaseSeeder {
     // Write your database queries inside the run method
     await Book.truncate() // Clear existing data
 
-    await BookFactory.createMany(1000)
+    await BookFactory.createMany(100)
   }
 }
