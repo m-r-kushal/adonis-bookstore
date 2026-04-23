@@ -16,6 +16,7 @@ import router from '@adonisjs/core/services/router'
 router
   .group(() => {
     router.get('/books', [controllers.Books, 'index']).as('books.index')
+    router.get('/customers', [controllers.Customers, 'index']).as('customers.index')
     router.get('/books/create', [controllers.Books, 'create']).as('books.create')
     router.post('/books', [controllers.Books, 'store']).as('books.store')
     router.get('/books/:id/edit', [controllers.Books, 'edit']).as('books.edit')
@@ -29,17 +30,17 @@ router.on('/').render('pages/home').as('home')
 
 router
   .group(() => {
-    router.get('signup', [controllers.NewAccount, 'create'])
-    router.post('signup', [controllers.NewAccount, 'store'])
+    router.get('signup', [controllers.NewAccount, 'create']).as('new_account.create')
+    router.post('signup', [controllers.NewAccount, 'store']).as('new_account.store')
 
-    router.get('login', [controllers.Session, 'create'])
-    router.post('login', [controllers.Session, 'store'])
+    router.get('login', [controllers.Session, 'create']).as('session.create')
+    router.post('login', [controllers.Session, 'store']).as('session.store')
   })
   .use(middleware.guest())
 
 router
   .group(() => {
-    router.post('logout', [controllers.Session, 'destroy'])
+    router.post('logout', [controllers.Session, 'destroy']).as('session.destroy')
   })
   .use(middleware.auth())
 

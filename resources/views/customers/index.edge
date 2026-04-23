@@ -1,0 +1,49 @@
+@layout({ title: 'All Customers' })
+
+<div>
+  <div class="d-flex justify-content-between align-items-center my-3">
+    <h1 class="mb-0">All Customers</h1>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      @each(customer in customers)
+      <tr>
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.fullName }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.phone || '-' }}</td>
+        <td>{{ customer.address || '-' }}</td>
+      </tr>
+      @end
+    </tbody>
+  </table>
+
+  <ul class="pagination">
+    <li class="page-item {{ customers.currentPage === customers.firstPage ? 'disabled' : '' }}">
+      <a class="page-link" href="{{ route('customers.index') }}?page={{ customers.firstPage }}">&lt;&lt;</a>
+    </li>
+
+    <li class="page-item {{ customers.currentPage === 1 ? 'disabled' : '' }}">
+      <a class="page-link" href="{{ route('customers.index') }}?page={{ page * 1 - 1 }}">Previous</a>
+    </li>
+
+    <li class="page-item {{ !customers.hasMorePages ? 'disabled' : '' }}">
+      <a class="page-link" href="{{ route('customers.index') }}?page={{ page * 1 + 1 }}">Next</a>
+    </li>
+
+    <li class="page-item {{ customers.currentPage === customers.lastPage ? 'disabled' : '' }}">
+      <a class="page-link" href="{{ route('customers.index') }}?page={{ customers.lastPage }}">&gt;&gt;</a>
+    </li>
+  </ul>
+</div>
+@end

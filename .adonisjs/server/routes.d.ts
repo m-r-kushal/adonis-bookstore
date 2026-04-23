@@ -5,6 +5,7 @@ type ParamValue = string | number | bigint | boolean
 export type ScannedRoutes = {
   ALL: {
     'books.index': { paramsTuple?: []; params?: {} }
+    'customers.index': { paramsTuple?: []; params?: {} }
     'books.create': { paramsTuple?: []; params?: {} }
     'books.store': { paramsTuple?: []; params?: {} }
     'books.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
@@ -20,6 +21,7 @@ export type ScannedRoutes = {
   }
   GET: {
     'books.index': { paramsTuple?: []; params?: {} }
+    'customers.index': { paramsTuple?: []; params?: {} }
     'books.create': { paramsTuple?: []; params?: {} }
     'books.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'books.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
@@ -29,6 +31,7 @@ export type ScannedRoutes = {
   }
   HEAD: {
     'books.index': { paramsTuple?: []; params?: {} }
+    'customers.index': { paramsTuple?: []; params?: {} }
     'books.create': { paramsTuple?: []; params?: {} }
     'books.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'books.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }

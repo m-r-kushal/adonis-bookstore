@@ -1,1 +1,18 @@
 @import 'bootstrap';
+
+.form-container {
+	min-height: calc(100vh - 10rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+	max-width: 40rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.form-container .card {
+	width: 100%;
+	text-align: left;
+}

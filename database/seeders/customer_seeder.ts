@@ -6,6 +6,6 @@ export default class extends BaseSeeder {
   async run() {
     await Customer.truncate()
 
-    await CustomerFactory.createMany(100)
+    await CustomerFactory.createMany(20)
   }
 }
