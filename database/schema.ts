@@ -47,6 +47,44 @@ export class CustomerSchema extends BaseModel {
   declare updatedAt: DateTime | null
 }
 
+export class SaleDetailSchema extends BaseModel {
+  static $columns = ['bookId', 'createdAt', 'id', 'lineTotal', 'quantity', 'saleId', 'unitPrice', 'updatedAt'] as const
+  $columns = SaleDetailSchema.$columns
+  @column()
+  declare bookId: number
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column({ isPrimary: true })
+  declare id: number
+  @column()
+  declare lineTotal: number
+  @column()
+  declare quantity: number
+  @column()
+  declare saleId: number
+  @column()
+  declare unitPrice: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
+export class SaleSchema extends BaseModel {
+  static $columns = ['createdAt', 'customerId', 'id', 'saleDate', 'totalAmount', 'updatedAt'] as const
+  $columns = SaleSchema.$columns
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+  @column()
+  declare customerId: number
+  @column({ isPrimary: true })
+  declare id: number
+  @column.dateTime()
+  declare saleDate: DateTime
+  @column()
+  declare totalAmount: number
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime | null
+}
+
 export class UserSchema extends BaseModel {
   static $columns = ['createdAt', 'email', 'fullName', 'id', 'password', 'updatedAt'] as const
   $columns = UserSchema.$columns
